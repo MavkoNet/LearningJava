@@ -1,9 +1,5 @@
 package mypackage;
 
-import com.sun.xml.internal.ws.server.ServerRtException;
-
-import java.io.UnsupportedEncodingException;
-
 public class TypeConversionString {
 
     public static void main(String[] args) {
@@ -122,7 +118,7 @@ public class TypeConversionString {
         char[]charArrays = new char[]{'A', 'B', 'C', 'D', 'E'};
 
         String newString1 = new String(charArrays);
-        System.out.println("String: " + newString1);
+        System.out.println("Character array to String: " + newString1);
 
     }
 }
