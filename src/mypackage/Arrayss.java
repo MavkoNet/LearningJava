@@ -9,28 +9,46 @@ public class Arrayss {
         float[] unsortedArray = {1.2f, 3.6f, 1.3f, -5.5f, 4.8f, 8.1f, 7.5f, 6.5f};
         System.out.println("Оригинальный массив: " + Arrays.toString(unsortedArray) + "\n");
 
-        System.out.println("Элементы массива в одну строку с помощью цикла:");
-        for (int i = 0; i < unsortedArray.length; i++) {
+        //1. вывести массив на консоль в одну строку, разделяя запятой
+        //1.1 с помощью цикла
+        System.out.print("1. Элементы массива в одну строку:\n- с помощью цикла: ");
+        int i = 0;
+        while (i < unsortedArray.length) {
             System.out.print(unsortedArray[i] + ", ");
+            i++;
         }
-        System.out.println();
 
-        System.out.println("\nЭлементы массива в одну строку с помощью служебного класса:");
+        //1.2 вывести массив на консоль в одну строку, разделяя запятой
+        //с помощью служебного класса
+        System.out.print("\n- с помощью служебного класса: ");
         System.out.println(Arrays.toString(unsortedArray) + "\n");
 
+        //2. отсортировать по возрастанию
+        //используется два разных метода, поэтому исходный массив копируется
+        //и бонусом замеряется время сортировки в кадом методе
         bubbleSort(unsortedArray);
         standartClass(unsortedArray);
 
+        //3. отсортировать по убыванию
+        Float[] copyUnsortedArray = {1.2f, 3.6f, 1.3f, -5.5f, 4.8f, 8.1f, 7.5f, 6.5f};
+        Arrays.sort(copyUnsortedArray, Collections.reverseOrder());
+        System.out.println("3. Сортировка по убыванию: " + Arrays.toString(copyUnsortedArray) + "\n");
+
+        //4. вывести наименьший и наибольший элемент массива
         //При сортировке по убыванию мной используется класс Collections
         //но он работает только с классом Float, поэтому пример нахождения
         //наибольшего и наименьшего будет с противоположными значениями индексов
-        Float[] copyUnsortedArray = {1.2f, 3.6f, 1.3f, -5.5f, 4.8f, 8.1f, 7.5f, 6.5f};
-        Arrays.sort(copyUnsortedArray, Collections.reverseOrder());
-
-        System.out.println("Сортировка по убыванию с помощью служебного класса: " + Arrays.toString(copyUnsortedArray) + "\n");
-
+        System.out.println("4. Нахождение наибольшего и наименьшего элемента массива");
         System.out.println("НаиМеньший элемент массива: " + copyUnsortedArray[copyUnsortedArray.length-1]);
         System.out.println("НаиБольший элемент массива: " + copyUnsortedArray[0]);
+
+        //5. сравнить содержимое массивов
+        //проверить присутствует ли элемент одного массива в другом массиве
+        int[] arr1 = {2,1,0,50,30,20,10};
+        int[] arr2 = {2,1,0,30,30,20,40};
+        System.out.println("\n5. Сравнение двух массивов. \nПерый массив: " + Arrays.toString(arr1));
+        System.out.println("Второй массив: " + Arrays.toString(arr2));
+        compareArrays(arr1, arr2);
 
     }
 
@@ -44,8 +62,7 @@ public class Arrayss {
                 isTrue = true;
             for (int i = 0; i < array.length - 1; i++) {
                 if (array[i] > array[i + 1]) {
-                    float t = 0;
-                    t = array[i];
+                    float t = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = t;
                     isTrue = false;
@@ -54,19 +71,37 @@ public class Arrayss {
         }
         long stop = System.nanoTime();
 
-        System.out.println("Сортировка пузырьком: " + Arrays.toString(array));
+        System.out.println("2.1 Сортировка пузырьком: " + Arrays.toString(array));
         System.out.println("Время выполнения: " + (stop - start) + "\n");
 
     }
 
     public static void standartClass(float[] arrayToSort) {
-        float array[] = Arrays.copyOf(arrayToSort, arrayToSort.length);
+        float[] array = Arrays.copyOf(arrayToSort, arrayToSort.length);
         long start = System.nanoTime();
         Arrays.sort(array);
         long stop = System.nanoTime();
-        System.out.println("Сортировка через служебный класс: " + Arrays.toString(array));
+        System.out.println("2.2 Сортировка через служебный класс: " + Arrays.toString(array));
         System.out.println("Время выполнения: " + (stop - start) + "\n");
 
+    }
+
+    public static void compareArrays(int[] first, int[] second) {
+        int[] along = new int[7];
+        int a = 0;
+
+        for (int indexFirst = 0; indexFirst < first.length - 1; indexFirst++) {
+            for (int indexSecond = 0; indexSecond < second.length - 1; indexSecond++) {
+                if (first[indexFirst] == second[indexSecond]) {
+                    along[a] = first[indexFirst];
+                    a++;
+                }
+            }
+        }
+
+
+
+        System.out.println("\nОбщие элементы: " + Arrays.toString(along));
     }
 
 }
