@@ -24,8 +24,8 @@ public class Arrayss {
         System.out.println(Arrays.toString(unsortedArray) + "\n");
 
         //2. отсортировать по возрастанию
-        //используется два разных метода, поэтому исходный массив копируется
-        //и бонусом замеряется время сортировки в кадом методе
+        //используется два разных метода, поэтому исходный массив _копируется_
+        //и бонусом замеряется время сортировки в каждом методе
         bubbleSort(unsortedArray);
         standartClass(unsortedArray);
 
@@ -35,7 +35,7 @@ public class Arrayss {
         System.out.println("3. Сортировка по убыванию: " + Arrays.toString(copyUnsortedArray) + "\n");
 
         //4. вывести наименьший и наибольший элемент массива
-        //При сортировке по убыванию мной используется класс Collections
+        //при сортировке по убыванию мной используется класс Collections
         //но он работает только с классом Float, поэтому пример нахождения
         //наибольшего и наименьшего будет с противоположными значениями индексов
         System.out.println("4. Нахождение наибольшего и наименьшего элемента массива");
@@ -98,10 +98,22 @@ public class Arrayss {
                 }
             }
         }
-
-
-
-        System.out.println("\nОбщие элементы: " + Arrays.toString(along));
+        System.out.print("\nОбщие элементы в массивах: ");
+        noDubs(along);
     }
 
+    public static void noDubs(int[] singleArray) {
+        //взять первый элемент массива и сравнить его со всеми остальными справа
+        //если нет равных, то записать элемент в строку
+        //если есть одинаковый, то пропустить и перейти к сравнению следующего элемента со всеми остальными
+        for (int i = 0; i < singleArray.length; i++) {
+            boolean boo = true;
+            for (int j = (i + 1); j < singleArray.length; j++) {
+                if (singleArray[i] == singleArray[j]) {
+                    boo = false;
+                    break;
+                }
+            } if (boo) System.out.print(singleArray[i] + "; ");
+        }
+    }
 }
