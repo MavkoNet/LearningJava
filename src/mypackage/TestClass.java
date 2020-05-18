@@ -82,6 +82,12 @@ public class TestClass {
         int num = 12241;
         int dig = ((num % 100) / 10) % 10;
         System.out.println(dig);
+        
+        String str3 = "My name is %s! I'm %d years old!";
+        int age = 30;
+        String name = "Ivan";
+
+        System.out.println(String.format(str3, name, age));
 
     }
 
