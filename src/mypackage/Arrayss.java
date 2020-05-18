@@ -113,7 +113,11 @@ public class Arrayss {
                     boo = false;
                     break;
                 }
-            } if (boo) System.out.print(singleArray[i] + "; ");
+            }
+
+            if (boo) {
+                System.out.print(singleArray[i] + "; ");
+            }
         }
     }
 }

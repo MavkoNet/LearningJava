@@ -79,6 +79,10 @@ public class TestClass {
         byte b1 = 127;
         int b3 = b1 + 2;
 
+        int num = 12241;
+        int dig = ((num % 100) / 10) % 10;
+        System.out.println(dig);
+
     }
 
 }
