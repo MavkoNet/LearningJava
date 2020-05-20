@@ -39,9 +39,7 @@ public class IfSwitch {
         if (num == 2 ) {
             System.out.println(". В этом месяце 29 дней!");
             return;
-        }
-
-        if ((((num % 2) == 0) && ((1 <= num) && (num <= 7))) || (((num % 2) == 1) && ((7 < num) && (num <= 12)))) {
+        } else if ((((num % 2) == 0) && ((1 <= num) && (num <= 7))) || (((num % 2) == 1) && ((7 < num) && (num <= 12)))) {
             System.out.println(". В этом месяце 30 дней!");
         } else
             System.out.println(". В Этом месяце 31 день!");
@@ -53,47 +51,47 @@ public class IfSwitch {
         switch (num) {
             case 1:
                 System.out.print("Январь");
-                return;
+                break;
 
             case 2:
                 System.out.print("Февраль");
-                return;
+                break;
 
             case 3:
                 System.out.print("Март");
-                return;
+                break;
 
             case 4:
                 System.out.print("Апрель");
-                return;
+                break;
 
             case 5:
                 System.out.print("Май");
-                return;
+                break;
 
             case 6:
                 System.out.print("Июнь");
-                return;
+                break;
 
             case 7:
                 System.out.print("Июль");
-                return;
+                break;
 
             case 8:
                 System.out.print("Август");
-                return;
+                break;
 
             case 9:
                 System.out.print("Сентябрь");
-                return;
+                break;
 
             case 10:
                 System.out.print("Октябрь");
-                return;
+                break;
 
             case 11:
                 System.out.print("Ноябрь");
-                return;
+                break;
 
             case 12:
                 System.out.print("Декабрь");
