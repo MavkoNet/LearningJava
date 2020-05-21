@@ -38,7 +38,6 @@ public class IfSwitch {
     public static void amountDays(int num) {
         if (num == 2 ) {
             System.out.println(". В этом месяце 29 дней!");
-            return;
         } else if ((((num % 2) == 0) && ((1 <= num) && (num <= 7))) || (((num % 2) == 1) && ((7 < num) && (num <= 12)))) {
             System.out.println(". В этом месяце 30 дней!");
         } else
