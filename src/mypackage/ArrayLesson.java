@@ -18,7 +18,8 @@ public class ArrayLesson {
         System.out.print("1. Элементы массива в одну строку:\n- с помощью цикла: ");
         int i = 0;
         while (i < unsortedArray.length) {
-            System.out.print(unsortedArray[i] + ", ");
+            System.out.print((i == 0) ? "[" + unsortedArray[i] + ", "
+                    : (i == (unsortedArray.length - 1)) ? +unsortedArray[i] + "]" : unsortedArray[i] + ", ");
             i++;
         }
 
@@ -112,7 +113,7 @@ public class ArrayLesson {
      * Метод сравнивает два массива используя множество HashSet,
      * который также исключает одинаковые элементы в конечном выводе
      *
-     * @param first первый массив типа integer для сравнения со вторым массивом
+     * @param first  первый массив типа integer для сравнения со вторым массивом
      * @param second второй массив типа integer
      */
     public static void compareArrays(int[] first, int[] second) {
@@ -133,7 +134,7 @@ public class ArrayLesson {
     /**
      * Метод сравнивает два массива
      *
-     * @param first первый массив типа integer для сравнения со вторым массивом
+     * @param first  первый массив типа integer для сравнения со вторым массивом
      * @param second второй массив типа integer
      * @deprecated Этот метод заменен использованием множества HashSet
      */
@@ -161,7 +162,7 @@ public class ArrayLesson {
      * если есть одинаковый, то пропустить и перейти к сравнению следующего элемента со всеми остальными
      *
      * @param singleArray массив с элементами типа integer.
-     * Он результат сравнения двух массивов
+     *                    Он результат сравнения двух массивов
      * @see ArrayLesson#compareArrays(int[], int[])
      * @deprecated Этот метод вызывается через oldCompareArrays,
      * который не используется и заменен использованием множества HashSet.
